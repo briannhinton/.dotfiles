@@ -29,7 +29,7 @@
 - [Generate an access token](https://help.github.com/articles/creating-an-access-token-for-command-line-use/) for Terminal to auth your GitHub account when 2FA is enabled.
 
 ### 4. Setup Homebrew
-
+TODO: Change how homebrew is installed. Don't install in system.
 - Install Homebrew `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
 - Install Cask `brew tap caskroom/cask`
 
@@ -54,6 +54,10 @@
   - [Wrap in tag](https://atom.io/packages/atom-wrap-in-tag)
   - [Selector to tag](https://atom.io/packages/selector-to-tag)
   - [Linter](https://atom.io/packages/linter) and [`.scss` linter](https://atom.io/packages/linter-scss-lint)
+  
+### 8. Setup HyperTerm
+- Install HyperTerm 'brew cask install hyperterm'
+- https://github.com/jxnblk/hypercolors
 
 ## Use it yourself
 
