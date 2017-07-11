@@ -69,6 +69,3 @@ alias w='cd ${DIR}'
 
 ## Mobile iOS testing
 alias ios='open /Applications/Xcode.app/Contents/Developer/Applications/Simulator.app'
-
-# rbenv
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
