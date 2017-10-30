@@ -1,71 +1,48 @@
-# Get the Git branch
-parse_git_branch() {
-  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
-}
+# Add `~/bin` to the `$PATH`
+export PATH="$HOME/bin:$PATH";
 
-# Custom bash prompt
-#
-# Includes custom character for the prompt, path, and Git branch name.
-#
-# Source: kirsle.net/wizards/ps1.html
-export PS1="\n\[$(tput bold)\]\[$(tput setaf 5)\]➜ \[$(tput setaf 6)\]\w\[$(tput setaf 3)\]\$(parse_git_branch) \[$(tput sgr0)\]"
+# Load the shell dotfiles, and then some:
+# * ~/.path can be used to extend `$PATH`.
+# * ~/.extra can be used for other settings you don’t want to commit.
+for file in ~/.{path,bash_prompt,exports,aliases,functions,extra}; do
+	[ -r "$file" ] && [ -f "$file" ] && source "$file";
+done;
+unset file;
 
-export PATH=/opt/local/bin:/opt/local/sbin:${PATH}
+# Case-insensitive globbing (used in pathname expansion)
+shopt -s nocaseglob;
 
-# Aliases
+# Append to the Bash history file, rather than overwriting it
+shopt -s histappend;
 
-## Shortcuts
-alias ll='ls -al'
-alias editgit='atom ~/.gitconfig'
-alias editbash='atom ~/.bash_profile'
-alias resource='source ~/.bash_profile && echo "Done!"'
-alias vi=vim
-alias brian=sudo
+# Autocorrect typos in path names when using `cd`
+shopt -s cdspell;
 
-## Useful Utilities
-alias show="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
-alias hide="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"
-alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
-alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
-alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
+# Enable some Bash 4 features when possible:
+# * `autocd`, e.g. `**/qux` will enter `./foo/bar/baz/qux`
+# * Recursive globbing, e.g. `echo **/*.txt`
+for option in autocd globstar; do
+	shopt -s "$option" 2> /dev/null;
+done;
 
-## Stuff I never really use but cannot delete either because of http://xkcd.com/530/
-alias stfu="osascript -e 'set volume output muted true'"
-alias pumpitup="osascript -e 'set volume 7'"
+# Add tab completion for many Bash commands
+if which brew &> /dev/null && [ -f "$(brew --prefix)/share/bash-completion/bash_completion" ]; then
+	source "$(brew --prefix)/share/bash-completion/bash_completion";
+elif [ -f /etc/bash_completion ]; then
+	source /etc/bash_completion;
+fi;
 
-## Recursively delete `.DS_Store` files
-alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
+# Enable tab completion for `g` by marking it as an alias for `git`
+if type _git &> /dev/null && [ -f /usr/local/etc/bash_completion.d/git-completion.bash ]; then
+	complete -o default -o nospace -F _git g;
+fi;
 
-## Empty the Trash on all mounted volumes and the main HDD
-## Also, clear Apple’s System Logs to improve shell startup speed
-alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv ~/.Trash; sudo rm -rfv /private/var/log/asl/*.asl"
+# Add tab completion for SSH hostnames based on ~/.ssh/config, ignoring wildcards
+[ -e "$HOME/.ssh/config" ] && complete -o "default" -o "nospace" -W "$(grep "^Host" ~/.ssh/config | grep -v "[?*]" | cut -d " " -f2- | tr ' ' '\n')" scp sftp ssh;
 
-# Kill all the tabs in Chrome to free up memory
-# [C] explained: http://www.commandlinefu.com/commands/view/402/exclude-grep-from-your-grepped-output-of-ps-alias-included-in-description
-alias chromekill="ps ux | grep '[C]hrome Helper --type=renderer' | grep -v extension-process | tr -s ' ' | cut -d ' ' -f2 | xargs kill"
+# Add tab completion for `defaults read|write NSGlobalDomain`
+# You could just use `-g` instead, but I like being explicit
+complete -W "NSGlobalDomain" defaults;
 
-## Git commands
-alias log='git log'
-alias diff='git diff'
-alias branch='git branch'
-alias st='git status'
-alias fetch='git fetch'
-alias push='git push origin head'
-alias pull='git pull'
-alias fp='fetch && pull'
-alias gmm='git merge master'
-alias gmghp='git merge gh-pages'
-alias recent='git for-each-ref --sort=-committerdate refs/heads/'
-alias branch_new="git for-each-ref --sort=-committerdate refs/heads/ --format='%(refname:short)'"
-
-## Git branch switching
-alias master='git co master'
-alias ghp='git co gh-pages'
-
-## Switch repos
-DIR=~/work
-alias h='cd ~/'
-alias w='cd ${DIR}'
-
-## Mobile iOS testing
-alias ios='open /Applications/Xcode.app/Contents/Developer/Applications/Simulator.app'
+# Add `killall` tab completion for common apps
+complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes SystemUIServer Terminal Twitter" killall;
