@@ -33,3 +33,4 @@ brew cask install flinto
 brew cask install slack-beta
 brew cask install appcleaner
 brew cask install github-beta
+brew cask install hyper
