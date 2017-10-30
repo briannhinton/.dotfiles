@@ -75,10 +75,28 @@ alias cleanup_dsstore="find . -name '*.DS_Store' -type f -ls -delete"
 alias diskspace_report="df -P -kHl"
 alias free_diskspace_report="diskspace_report"
 
-# Shortcuts
+# Shortcuts and utilities
+
+## Git stuff
 alias g="git"
+alias master='git co master'
+alias ghp='git co gh-pages'
+alias editgit='atom ~/.gitconfig'
+
+# Various shortcuts
 alias v="vim"
 alias ungz="gunzip -k"
+alias editbash='atom ~/.bash_profile'
+alias resource='source ~/.bash_profile && echo "Done!"'
+alias vi=vim
+alias brian=sudo
+
+# Utilities
+alias show="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
+alias hide="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"
+alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
+alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
+alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
 
 # File size
 alias fs="stat -f \"%z bytes\""
