@@ -1,18 +1,21 @@
 # Config
 #### Mac OS High Sierra
 
-**Config** is my checklist I follow to set up a new Mac's development environment. It gets me up to speed with Homebrew, Git, Node, GitHub, and more so I can more quickly get back to work.
+**Config** is my opinionated setup of my Mac's development environment. It gets me up to speed with Homebrew, Git, Node, GitHub, and more so I can more quickly get back to work.
 
 ## Contents
+
+TBD
 
 | File | Description |
 | --- | --- |
 | `.gitconfig` | Global Git configuration to specify my name and email, shortcuts, colors, and more. |
 | `.gitignore` | The ignore file from [twbs/bootstrap](https://github.com/twbs/bootstrap) that I use everywhere. |
 
-## Checklist
 
-### 1. Prep OS X
+## Installation
+
+### Prep OS X
 
 - Enter `xcode-select --install` in a Terminal window.
 
@@ -21,41 +24,34 @@ OR
 - Download and install latest version of Xcode from the Mac App Store.
 - Download and install Xcode Command Line Tools from <https://developer.apple.com/downloads/>.
 
+**Warning:** If you want to give these dotfiles a try, you should first fork this repository, review the code, and remove things you don’t want or need. Don’t blindly use my settings unless you know what that entails. Use at your own risk!
 
-### 2. Prep Terminal
+### Using Git and the bootstrap script
 
-- Add [`.gitconfig`](/.gitconfig) contents into the global `~/.gitconfig`
+You can clone the repository wherever you want. (I like to keep it in `~/Projects/dotfiles`, with `~/dotfiles` as a symlink.) The bootstrapper script will pull in the latest version and copy the files to your home folder.
 
-### 3. Setup Homebrew
-- Install Homebrew `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
-- Check Homebrew was installed correctly `brew doctor`
-- Install Versions `brew tap caskroom/versions`
+```bash
+git clone https://github.com/mrbrianhinton/config.git && cd config && source flipflop.sh
+```
 
-### 4. Secure and setup Git(Hub) access
+To update, `cd` into your local `dotfiles` repository and then:
 
-- Enter `brew update`
-- Enter `brew install git`
-- Check Git version `git --version`
-- [Generate new SSH key](https://help.github.com/articles/generating-ssh-keys/)
-- [Generate an access token](https://help.github.com/articles/creating-an-access-token-for-command-line-use/) for Terminal to auth your GitHub account when 2FA is enabled.
+```bash
+source flipflop.sh
+```
 
-### 5. Additional dependencies
+Alternatively, to update while avoiding the confirmation prompt:
 
-- Install node via Homebrew: `brew install npm`.
+```bash
+set -- -f; source flipflop.sh
+```
 
-### 6. Setup Atom
+### Git-free install
 
-- Install Atom `brew cask install atom`
-- Enable `atom` Terminal commands: from Atom.app, open the Atom menu and select *Install Shell Commands*
-- Install favorite packages
-  - [Wrap in tag](https://atom.io/packages/atom-wrap-in-tag)
-  - [Selector to tag](https://atom.io/packages/selector-to-tag)
-  - [Linter](https://atom.io/packages/linter) and [`.scss` linter](https://atom.io/packages/linter-scss-lint)
-  
-### 7. Install additional applications
+To install these dotfiles without Git:
 
-- Use script to install additional applications (TODO: Add script)  
+```bash
+cd; curl -#L https://github.com/mrbrianhinton/config/tarball/master | tar -xzv --strip-components 1 --exclude={README.md,flipflop.sh,.macos}
+```
 
-## Use it yourself
-
-Fork this repo, or just copy-paste things you need, and make it your own. **Please be sure to change your `.gitconfig` name and email address though!**
+To update later on, just run that command again.
