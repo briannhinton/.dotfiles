@@ -22,10 +22,6 @@ _site
 .idea
 .project
 .settings
-.tmproj
-*.esproj
-*.sublime-project
-*.sublime-workspace
 nbproject
 Thumbs.db
 
