@@ -29,7 +29,7 @@ brew 'php'
 brew 'mysql'
 brew 'nginx'
 brew 'nvm'
-brew 'sqlite3'
+brew 'sqlite'
 brew 'redis'
 brew 'ruby'
 
