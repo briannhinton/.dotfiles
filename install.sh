@@ -34,9 +34,12 @@ npm install -g spaceship-prompt
 # This is a default directory for macOS user accounts but doesn't comes pre-installed
 mkdir $HOME/Sites
 
-# Removes .zshrc from $HOME (if it exists) and symlinks the .zshrc file from the .dotfiles
-rm -rf $HOME/.zshrc
-ln -s $HOME/.dotfiles/.zshrc $HOME/.zshrc
+# Moves files .zshrc, .curlrc etc. from $HOME/.dotfiles to $HOME
+cp -av $HOME/.dotfiles/.zshrc $HOME/.zshrc
+cp -av $HOME/.dotfiles/.hyper.js $HOME/.hyper.js
+cp -av $HOME/.dotfiles/.editorconfig $HOME/.hyper.js
+cp -av $HOME/.dotfiles/.curlrc $HOME/.curlrc
+cp -av $HOME/.dotfiles/.gitignore_global $HOME/.gitignore_global
 
 # Set macOS preferences
 # We will run this last because this will reload the shell
