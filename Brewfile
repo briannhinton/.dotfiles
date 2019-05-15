@@ -23,11 +23,9 @@ brew 'zsh-completions'
 # Note: don’t forget to add `/usr/local/bin/bash` to `/etc/shells` before
 # running `chsh`.
 brew 'bash'
-brew 'bash-completions2'
 
 # Development
 brew 'php'
-brew 'imagick'
 brew 'mysql'
 brew 'nginx'
 brew 'node'
