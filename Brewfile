@@ -30,6 +30,8 @@ brew 'mysql'
 brew 'nginx'
 brew 'node'
 brew 'redis'
+brew 'nvm'
+brew 'ruby'
 
 # Apps
 
@@ -43,7 +45,6 @@ cask 'figma'
 cask 'flinto'
 cask 'tower'
 cask 'sketch'
-cask 'alacritty'
 cask 'spectacle'
 cask 'appcleaner'
 cask 'spectrum'
@@ -67,7 +68,6 @@ cask 'font-source-code-pro-for-powerline'
 cask 'font-source-code-pro'
 cask 'font-source-sans-pro'
 cask 'font-source-serif-pro'
-cask 'Sauce Code Nerd Font'
 
 # Mac App Store
 mas 'Sip', id: 507257563
@@ -79,6 +79,5 @@ mas 'Keynote', id: 409183694
 mas 'Page', id: 409201541
 mas 'Numbers', id: 409203825
 mas 'CotEditor', id: 1024640650
-mas 'Unsplash', id: 1284863847
 
 
