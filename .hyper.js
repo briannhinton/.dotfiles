@@ -11,7 +11,7 @@ module.exports = {
     // default font size in pixels for all tabs
     fontSize: 16,
     // font family with optional fallbacks
-    fontFamily: '"MesloLGMDZ Nerd Font", monospace',
+    fontFamily: 'monospace',
 
     // text color
     foregroundColor: '#fff', // currently overwritten by plugin
