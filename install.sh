@@ -15,17 +15,17 @@ brew tap homebrew/bundle
 brew bundle
 
 # Install PHP extensions with PECL
-pecl install memcached imagick
+# pecl install memcached imagick
 
 # Install Composer
-curl -sS https://getcomposer.org/installer | php
-mv composer.phar /usr/local/bin/composer
+# curl -sS https://getcomposer.org/installer | php
+# mv composer.phar /usr/local/bin/composer
 
 # Install global Composer packages
-/usr/local/bin/composer global require laravel/installer laravel/spark-installer laravel/valet
+# /usr/local/bin/composer global require laravel/installer laravel/spark-installer laravel/valet
 
 # Install Laravel Valet
-$HOME/.composer/vendor/bin/valet install
+# $HOME/.composer/vendor/bin/valet install
 
 # Install Global NPM
 npm install -g spaceship-prompt
