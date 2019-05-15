@@ -28,9 +28,9 @@ brew 'bash'
 brew 'php'
 brew 'mysql'
 brew 'nginx'
-brew 'node'
-brew 'redis'
 brew 'nvm'
+brew 'sqlite3'
+brew 'redis'
 brew 'ruby'
 
 # Apps
