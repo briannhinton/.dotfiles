@@ -106,9 +106,9 @@ load-nvmrc() {
     nvm use default
     fi
 }
-# Add the above function when the present working directory (pwd) changes
-add-zsh-hook chpwd load-nvmrc
-load-nvmrc
+
+# Add the above function when the present working directory (pwd) changes 
+add-zsh-hook chpwd load-nvmrc load-nvmrc
 
 # Allow the use of the z plugin to easily navigate directories
 . /usr/local/etc/profile.d/z.sh
