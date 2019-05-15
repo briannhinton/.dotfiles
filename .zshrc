@@ -112,3 +112,7 @@ add-zsh-hook chpwd load-nvmrc load-nvmrc
 
 # Allow the use of the z plugin to easily navigate directories
 . /usr/local/etc/profile.d/z.sh
+
+# Set Spaceship ZSH as a prompt
+autoload -U promptinit; promptinit
+prompt spaceship
