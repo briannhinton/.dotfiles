@@ -1,7 +1,7 @@
 # Config
 #### Mac OS High Sierra
 
-**Config** is my opinionated setup of my Mac's development environment. It gets me up to speed with Homebrew, Git, Node, GitHub, and more so I can more quickly get back to work.
+**Config** is my opinionated setup of my Mac's development environment. It gets me up to speed with Homebrew, Git, Node, PHP, GitHub, and more so I can more quickly get back to work.
 
 ## Contents
 
@@ -9,8 +9,7 @@ TBD
 
 | File | Description |
 | --- | --- |
-| `.gitconfig` | Global Git configuration to specify my name and email, shortcuts, colors, and more. |
-| `.gitignore` | The ignore file from [twbs/bootstrap](https://github.com/twbs/bootstrap) that I use everywhere. |
+| `.gitignore_global` | The ignore file that I use everywhere. |
 
 
 ## Installation
@@ -28,30 +27,14 @@ OR
 
 ### Using Git and the bootstrap script
 
-You can clone the repository wherever you want. (I like to keep it in `~/Projects/dotfiles`, with `~/dotfiles` as a symlink.) The bootstrapper script will pull in the latest version and copy the files to your home folder.
+You can clone the repository wherever you want. (I keep it in `$HOME/.dotfiles`) The bootstrapper script will install all my developer tools and configurations.
 
 ```bash
-git clone https://github.com/mrbrianhinton/config.git && cd config && source flipflop.sh
+git clone https://github.com/mrbrianhinton/.dotfiles.git && source install.sh
 ```
 
 To update, `cd` into your local `dotfiles` repository and then:
 
 ```bash
-source flipflop.sh
+source install.sh
 ```
-
-Alternatively, to update while avoiding the confirmation prompt:
-
-```bash
-set -- -f; source flipflop.sh
-```
-
-### Git-free install
-
-To install these dotfiles without Git:
-
-```bash
-cd; curl -#L https://github.com/mrbrianhinton/config/tarball/master | tar -xzv --strip-components 1 --exclude={README.md,flipflop.sh,.macos}
-```
-
-To update later on, just run that command again.
