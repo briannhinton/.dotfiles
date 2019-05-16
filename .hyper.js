@@ -11,7 +11,7 @@ module.exports = {
     // default font size in pixels for all tabs
     fontSize: 16,
     // font family with optional fallbacks
-    fontFamily: 'monospace',
+    fontFamily: '"FuraCode Nerd Font", monospace',
 
     // text color
     foregroundColor: '#fff', // currently overwritten by plugin
@@ -21,7 +21,7 @@ module.exports = {
     // cursor background color and opacity (hex, rgb, hsl, hsv, hwb or cmyk)
     // cursorColor: 'rgba(248,28,229,0.8)',
     // `BEAM` for |, `UNDERLINE` for _, `BLOCK` for █
-    cursorShape: 'BEAM',
+    cursorShape: 'BLOCK',
     cursorBlink: true,
 
     // custom css to embed in the main window
@@ -78,8 +78,8 @@ module.exports = {
 
     // hyperborder config
     hyperBorder: {
-      borderColors: ['#1D976C', '#93F9B9'],
-      blurredColors: ['#177C59', '#84E0A6']
+      borderColors: ['#7AD7F0', '#DBF3FA'],
+      blurredColors: ['#DD332F', '#F17372']
     },
 
     // hyper-pane config
