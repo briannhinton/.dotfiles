@@ -27,8 +27,8 @@ brew bundle
 # Install Laravel Valet
 # $HOME/.composer/vendor/bin/valet install
 
-# Install Global NPM
-npm install -g spaceship-prompt
+# Install Global NPM (run after NVM is setup)
+# npm install -g spaceship-prompt
 
 # Create a Sites directory
 # This is a default directory for macOS user accounts but doesn't comes pre-installed
