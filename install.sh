@@ -25,10 +25,22 @@ brew bundle
 # /usr/local/bin/composer global require laravel/installer laravel/spark-installer laravel/valet
 
 # Install Laravel Valet
-# $HOME/.composer/vendor/bin/valet install
+$HOME/.composer/vendor/bin/valet install
+
+## Create .nvm directory
+mkdir $HOME/.nvm
+
+# Install current Node
+nvm install node
+
+# Install LTS
+nvm install --lts
+nvm use --lts
+
+# Install
 
 # Install Global NPM (run after NVM is setup)
-# npm install -g spaceship-prompt
+npm install -g spaceship-prompt
 
 # Create a Sites directory
 # This is a default directory for macOS user accounts but doesn't comes pre-installed
