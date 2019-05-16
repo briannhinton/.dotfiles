@@ -5,8 +5,6 @@
 export REACT_EDITOR=code-insiders
 # Set VS Code Insiders as default code editor
 export EDITOR=code-insiders
-# NVM directory variable
-export NVM_DIR="$HOME/.nvm"
 #------------------
 # PATH Manipulations
 #------------------
@@ -16,14 +14,18 @@ export PATH=$PATH:/usr/local/mysql/bin
 export PATH=${PATH}:$HOME/.composer/vendor/bin
 # Add ruby to PATH
 export PATH="/usr/local/opt/ruby/bin:$PATH"
-export PATH="/usr/local/lib/ruby/gems/2.5.0/bin:$PATH"
+export PATH="/usr/local/lib/ruby/gems/2.6.0/bin:$PATH"
+export PATH="/usr/local/sbin:$PATH"
+export NVM_DIR="$HOME/.nvm"
+  [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+  [ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"  # This loads nvm bash_completion
 #------------------
 # Zsh hooks
 #------------------
 # Enable the addition of zsh hook functions
 autoload -U add-zsh-hook
 # Load NVM and NVM bash completion
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 # [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" 
 # Automatically switch and load node versions when a directory has a `.nvmrc` file
 load-nvmrc() {
@@ -109,7 +111,7 @@ alias ll='colorls --group-directories-first --almost-all --long'
 alias c='clear'
 # Stuff I never really use but cannot delete either because of http://xkcd.com/530/
 alias stfu="osascript -e 'set volume output muted true'"
-alias pumpitup="osascript -e 'set volume output volume 100'
+alias pumpitup="osascript -e 'set volume output volume 100'"
 # Utilities
 alias show="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
 alias hide="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"
@@ -122,7 +124,7 @@ alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resource
 # Allow the use of the z plugin to easily navigate directories
 . /usr/local/etc/profile.d/z.sh
 # Set Spaceship ZSH as a prompt
-autoload -U promptinit
+autoload -U promptinit;
 promptinit
 prompt spaceship
 # Add colors to terminal commands (green command means that the command is valid)
