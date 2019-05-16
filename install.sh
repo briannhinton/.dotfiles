@@ -14,6 +14,13 @@ brew update
 brew tap homebrew/bundle
 brew bundle
 
+# Moves files .zshrc, .curlrc etc. from $HOME/.dotfiles to $HOME
+cp -av $HOME/.dotfiles/.zshrc $HOME/.zshrc
+cp -av $HOME/.dotfiles/.hyper.js $HOME/.hyper.js
+cp -av $HOME/.dotfiles/.editorconfig $HOME/.editorconfig
+cp -av $HOME/.dotfiles/.curlrc $HOME/.curlrc
+cp -av $HOME/.dotfiles/.gitignore_global $HOME/.gitignore_global
+
 # Install PHP extensions with PECL
 # pecl install memcached imagick
 
@@ -25,7 +32,7 @@ brew bundle
 # /usr/local/bin/composer global require laravel/installer laravel/spark-installer laravel/valet
 
 # Install Laravel Valet
-$HOME/.composer/vendor/bin/valet install
+composer global require laravel/valet
 
 ## Create .nvm directory
 mkdir $HOME/.nvm
@@ -36,8 +43,6 @@ nvm install node
 # Install LTS
 nvm install --lts
 nvm use --lts
-
-# Install
 
 # Install Global NPM (run after NVM is setup)
 npm install -g spaceship-prompt
