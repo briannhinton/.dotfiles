@@ -18,6 +18,8 @@ brew 'trash'
 brew 'zlib' # Needed for Memcached
 brew 'zsh'
 brew 'zsh-completions'
+brew 'composer'
+brew 'z'
 
 # Install Bash 4.
 # Note: don’t forget to add `/usr/local/bin/bash` to `/etc/shells` before
@@ -68,6 +70,8 @@ cask 'font-source-code-pro-for-powerline'
 cask 'font-source-code-pro'
 cask 'font-source-sans-pro'
 cask 'font-source-serif-pro'
+cask 'font-firacode-nerd-font'
+cask 'font-firacode-nerd-font-mono'
 
 # Mac App Store
 mas 'Sip', id: 507257563
