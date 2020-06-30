@@ -14,13 +14,6 @@ brew update
 brew tap homebrew/bundle
 brew bundle
 
-# Moves files .zshrc, .curlrc etc. from $HOME/.dotfiles to $HOME
-cp -av $HOME/.dotfiles/.zshrc $HOME/.zshrc
-cp -av $HOME/.dotfiles/.hyper.js $HOME/.hyper.js
-cp -av $HOME/.dotfiles/.editorconfig $HOME/.editorconfig
-cp -av $HOME/.dotfiles/.curlrc $HOME/.curlrc
-cp -av $HOME/.dotfiles/.gitignore_global $HOME/.gitignore_global
-
 # Install PHP extensions with PECL
 # pecl install memcached imagick
 
@@ -32,7 +25,7 @@ cp -av $HOME/.dotfiles/.gitignore_global $HOME/.gitignore_global
 # /usr/local/bin/composer global require laravel/installer laravel/spark-installer laravel/valet
 
 # Install Laravel Valet
-composer global require laravel/valet
+# composer global require laravel/valet
 
 ## Create .nvm directory
 mkdir $HOME/.nvm
@@ -58,6 +51,3 @@ cp -av $HOME/.dotfiles/.editorconfig $HOME/.editorconfig
 cp -av $HOME/.dotfiles/.curlrc $HOME/.curlrc
 cp -av $HOME/.dotfiles/.gitignore_global $HOME/.gitignore_global
 
-# Set macOS preferences
-# We will run this last because this will reload the shell
-source .macos
