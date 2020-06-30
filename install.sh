@@ -48,6 +48,5 @@ mkdir $HOME/Sites
 cp -av $HOME/.dotfiles/.zshrc $HOME/.zshrc
 cp -av $HOME/.dotfiles/.hyper.js $HOME/.hyper.js
 cp -av $HOME/.dotfiles/.editorconfig $HOME/.editorconfig
-cp -av $HOME/.dotfiles/.curlrc $HOME/.curlrc
 cp -av $HOME/.dotfiles/.gitignore_global $HOME/.gitignore_global
 
