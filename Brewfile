@@ -1,7 +1,7 @@
 # Taps
 
-tap 'cask-fonts'
-tap 'cask-versions'
+tap 'homebrew/cask-fonts' 
+tap 'homebrew/cask-versions'
 tap 'homebrew/bundle'
 
 # Binaries
@@ -39,10 +39,7 @@ cask 'spectacle'
 cask 'appcleaner'
 cask 'spectrum'
 cask 'paintcode'
-cask 'sequel-pro'
-cask 'tableplus'
 cask 'hyper'
-cask 'pock'
 
 # Quicklook
 cask 'qlcolorcode'
@@ -60,12 +57,11 @@ cask 'font-firacode-nerd-font'
 cask 'font-firacode-nerd-font-mono'
 
 # Mac App Store
-mas 'Sip', id: 507257563
-mas 'Affinity Designer', id: 824171161
-mas 'Affinity Photo', id: 824183456
-mas 'Bear', id: 1016366447
-mas 'iA Writer', id: 775737590
-mas 'Contrast Color Accessibility', id: 1254981365
+# mas 'Affinity Designer', id: 824171161
+# mas 'Affinity Photo', id: 824183456
+# mas 'Bear', id: 1016366447
+# mas 'iA Writer', id: 775737590
+# mas 'Contrast Color Accessibility', id: 1254981365
 mas 'Keynote', id: 409183694
 mas 'Page', id: 409201541
 mas 'Numbers', id: 409203825
